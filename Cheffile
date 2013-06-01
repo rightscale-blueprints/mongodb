@@ -3,6 +3,7 @@
 
 site 'http://community.opscode.com/api/v1'
 
+# pull request pending to edelight
 cookbook 'mongodb',
-   :git => 'https://github.com/edelight/chef-mongodb',
+   :git => 'https://github.com/flaccid/chef-mongodb',
    :ref => 'master'

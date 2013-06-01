@@ -5,9 +5,9 @@ SITE
     yum (2.2.2)
 
 GIT
-  remote: https://github.com/edelight/chef-mongodb
+  remote: https://github.com/flaccid/chef-mongodb
   ref: master
-  sha: 3f35a1e5ec05ddee8cf2f1f6ff5ee9c4161df3eb
+  sha: 0bbbdb4bf1d810fc77acfb95cd4f1ecfd299ddec
   specs:
     mongodb (0.12.0)
       apt (~> 1.4.4)
