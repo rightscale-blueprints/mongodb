@@ -1,228 +1,228 @@
 {
+  "version": "0.12.0",
   "replacing": {
   },
-  "maintainer_email": "markus.korn@edelight.de",
-  "groupings": {
-  },
-  "providing": {
-  },
-  "version": "0.12.0",
   "platforms": {
-    "amazon": ">= 0.0.0",
-    "debian": ">= 0.0.0",
-    "scientific": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
     "freebsd": ">= 0.0.0",
+    "scientific": ">= 0.0.0",
+    "amazon": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
     "ubuntu": ">= 0.0.0",
-    "redhat": ">= 0.0.0",
-    "centos": ">= 0.0.0"
+    "centos": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "redhat": ">= 0.0.0"
   },
-  "license": "Apache 2.0",
-  "maintainer": "edelight GmbH",
+  "recipes": {
+    "mongodb::replicaset": "Installs and configures a mongodb replicaset",
+    "mongodb::mongos": "Installs and configures a mongos which can be used in a sharded setup",
+    "mongodb::shard": "Installs and configures a single shard",
+    "mongodb::10gen_repo": "Adds the 10gen repo to get the latest packages",
+    "mongodb": "Installs and configures a single node mongodb instance",
+    "mongodb::configserver": "Installs and configures a configserver for mongodb sharding"
+  },
+  "suggestions": {
+  },
+  "name": "mongodb",
+  "long_description": "",
   "attributes": {
-    "mongodb/logpath": {
-      "display_name": "logpath",
-      "default": "/var/log/mongodb",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "description": "Path to store the logfiles of a mongodb instance",
+    "mongodb/cluster_name": {
       "recipes": [
 
       ],
-      "type": "string"
+      "required": "optional",
+      "calculated": false,
+      "description": "Name of the mongodb cluster, all nodes of a cluster must have the same name.",
+      "display_name": "Cluster Name",
+      "default": null,
+      "type": "string",
+      "choice": [
+
+      ]
+    },
+    "mongodb/nojournal": {
+      "recipes": [
+
+      ],
+      "required": "optional",
+      "calculated": false,
+      "description": "Journals are enabled by default on 64bit after mongo 2.0, this can disable it",
+      "display_name": "Disable Journals",
+      "default": "false",
+      "type": "string",
+      "choice": [
+
+      ]
+    },
+    "mongodb/enable_rest": {
+      "recipes": [
+
+      ],
+      "required": "optional",
+      "calculated": false,
+      "description": "Enable the ReST interface of the webserver",
+      "display_name": "Enable Rest",
+      "type": "string",
+      "choice": [
+
+      ]
     },
     "mongodb/client_roles": {
+      "recipes": [
+
+      ],
+      "required": "optional",
+      "calculated": false,
+      "description": "Roles of nodes who need access to the mongodb instance",
       "display_name": "Client Roles",
       "default": [
 
       ],
-      "required": "optional",
+      "type": "array",
       "choice": [
 
-      ],
-      "calculated": false,
-      "description": "Roles of nodes who need access to the mongodb instance",
-      "recipes": [
-
-      ],
-      "type": "array"
-    },
-    "mongodb/sharded_collections": {
-      "display_name": "Sharded Collections",
-      "default": null,
-      "required": "optional",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "description": "collections to shard",
-      "recipes": [
-
-      ],
-      "type": "array"
-    },
-    "mongodb/package_version": {
-      "display_name": "MongoDB package version",
-      "default": null,
-      "required": "optional",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "description": "Version of the MongoDB package to install",
-      "recipes": [
-
-      ],
-      "type": "string"
-    },
-    "mongodb/bind_ip": {
-      "display_name": "Bind address",
-      "default": null,
-      "required": "optional",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "description": "MongoDB instance bind address",
-      "recipes": [
-
-      ],
-      "type": "string"
-    },
-    "mongodb/replicaset_name": {
-      "display_name": "Replicaset_name",
-      "default": null,
-      "required": "optional",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "description": "Name of a mongodb replicaset",
-      "recipes": [
-
-      ],
-      "type": "string"
-    },
-    "mongodb/cluster_name": {
-      "display_name": "Cluster Name",
-      "default": null,
-      "required": "optional",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "description": "Name of the mongodb cluster, all nodes of a cluster must have the same name.",
-      "recipes": [
-
-      ],
-      "type": "string"
-    },
-    "mongodb/dbpath": {
-      "display_name": "dbpath",
-      "default": "/var/lib/mongodb",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "description": "Path to store the mongodb data",
-      "recipes": [
-
-      ],
-      "type": "string"
-    },
-    "mongodb/enable_rest": {
-      "display_name": "Enable Rest",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "description": "Enable the ReST interface of the webserver",
-      "recipes": [
-
-      ],
-      "type": "string"
+      ]
     },
     "mongodb/shard_name": {
-      "display_name": "Shard name",
-      "default": "default",
-      "required": "optional",
-      "choice": [
+      "recipes": [
 
       ],
+      "required": "optional",
       "calculated": false,
       "description": "Name of a mongodb shard",
-      "recipes": [
-
-      ],
-      "type": "string"
-    },
-    "mongodb/nojournal": {
-      "display_name": "Disable Journals",
-      "default": "false",
-      "required": "optional",
+      "display_name": "Shard name",
+      "default": "default",
+      "type": "string",
       "choice": [
 
-      ],
-      "calculated": false,
-      "description": "Journals are enabled by default on 64bit after mongo 2.0, this can disable it",
+      ]
+    },
+    "mongodb/replicaset_name": {
       "recipes": [
 
       ],
-      "type": "string"
-    },
-    "mongodb/port": {
-      "display_name": "Port",
-      "default": "27017",
       "required": "optional",
+      "calculated": false,
+      "description": "Name of a mongodb replicaset",
+      "display_name": "Replicaset_name",
+      "default": null,
+      "type": "string",
       "choice": [
 
-      ],
-      "calculated": false,
-      "description": "Port the mongodb instance is running on",
+      ]
+    },
+    "mongodb/sharded_collections": {
       "recipes": [
 
       ],
-      "type": "string"
+      "required": "optional",
+      "calculated": false,
+      "description": "collections to shard",
+      "display_name": "Sharded Collections",
+      "default": null,
+      "type": "array",
+      "choice": [
+
+      ]
     },
     "mongodb/configfile": {
-      "display_name": "Configuration File",
-      "default": null,
-      "required": "optional",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "description": "Name of configuration file to use with when starting mongod/mongos vs command line options",
       "recipes": [
 
       ],
-      "type": "string"
+      "required": "optional",
+      "calculated": false,
+      "description": "Name of configuration file to use with when starting mongod/mongos vs command line options",
+      "display_name": "Configuration File",
+      "default": null,
+      "type": "string",
+      "choice": [
+
+      ]
+    },
+    "mongodb/dbpath": {
+      "recipes": [
+
+      ],
+      "required": "optional",
+      "calculated": false,
+      "description": "Path to store the mongodb data",
+      "display_name": "dbpath",
+      "default": "/var/lib/mongodb",
+      "type": "string",
+      "choice": [
+
+      ]
+    },
+    "mongodb/port": {
+      "recipes": [
+
+      ],
+      "required": "optional",
+      "calculated": false,
+      "description": "Port the mongodb instance is running on",
+      "display_name": "Port",
+      "default": "27017",
+      "type": "string",
+      "choice": [
+
+      ]
+    },
+    "mongodb/package_version": {
+      "recipes": [
+
+      ],
+      "required": "optional",
+      "calculated": false,
+      "description": "Version of the MongoDB package to install",
+      "display_name": "MongoDB package version",
+      "default": null,
+      "type": "string",
+      "choice": [
+
+      ]
+    },
+    "mongodb/bind_ip": {
+      "recipes": [
+
+      ],
+      "required": "optional",
+      "calculated": false,
+      "description": "MongoDB instance bind address",
+      "display_name": "Bind address",
+      "default": null,
+      "type": "string",
+      "choice": [
+
+      ]
+    },
+    "mongodb/logpath": {
+      "recipes": [
+
+      ],
+      "required": "optional",
+      "calculated": false,
+      "description": "Path to store the logfiles of a mongodb instance",
+      "display_name": "logpath",
+      "default": "/var/log/mongodb",
+      "type": "string",
+      "choice": [
+
+      ]
     }
-  },
-  "description": "Installs and configures mongodb",
-  "recipes": {
-    "mongodb::replicaset": "Installs and configures a mongodb replicaset",
-    "mongodb::shard": "Installs and configures a single shard",
-    "mongodb::mongos": "Installs and configures a mongos which can be used in a sharded setup",
-    "mongodb": "Installs and configures a single node mongodb instance",
-    "mongodb::configserver": "Installs and configures a configserver for mongodb sharding",
-    "mongodb::10gen_repo": "Adds the 10gen repo to get the latest packages"
-  },
-  "conflicting": {
-  },
-  "suggestions": {
-  },
-  "recommendations": {
   },
   "dependencies": {
     "yum": ">= 0.0.0",
     "apt": "~> 1.4.4"
   },
-  "long_description": "",
-  "name": "mongodb"
+  "description": "Installs and configures mongodb",
+  "groupings": {
+  },
+  "conflicting": {
+  },
+  "maintainer_email": "markus.korn@edelight.de",
+  "providing": {
+  },
+  "maintainer": "edelight GmbH",
+  "recommendations": {
+  },
+  "license": "Apache 2.0"
 }
